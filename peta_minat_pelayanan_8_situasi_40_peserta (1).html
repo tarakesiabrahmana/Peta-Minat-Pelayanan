@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peta Minat Pelayanan</title>
+<style>
+:root{--ink:#243047;--muted:#667085;--bg:#f5f7fb;--card:#fff;--accent:#6c63ff;--accent2:#ecebff;--border:#e4e7ec}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+.container{max-width:900px;margin:auto;padding:28px 18px 50px}.card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 8px 30px #1018280d}
+h1{margin:0 0 8px;font-size:30px}.subtitle{color:var(--muted);line-height:1.6}.progress{height:9px;background:#e9edf5;border-radius:99px;overflow:hidden;margin:22px 0}.bar{height:100%;width:0;background:var(--accent);transition:.25s}
+.qnum{font-weight:700;color:var(--accent);margin-top:8px}.situation{font-size:21px;line-height:1.45;margin:8px 0 24px;font-weight:700}
+.statement{border:1px solid var(--border);border-radius:15px;padding:17px;margin:13px 0;background:#fff}.statement p{margin:0 0 14px;line-height:1.5}
+.scale{display:flex;gap:7px;flex-wrap:wrap}.scale label{flex:1;min-width:60px}.scale input{display:none}.scale span{display:block;text-align:center;border:1px solid var(--border);padding:10px 5px;border-radius:10px;cursor:pointer;color:var(--muted);font-weight:700}.scale input:checked+span{background:var(--accent2);border-color:var(--accent);color:var(--accent)}
+.scale-desc{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin-top:8px}
+button{border:0;border-radius:12px;padding:13px 20px;font-weight:800;cursor:pointer;font-size:15px}.primary{background:var(--accent);color:white}.secondary{background:#eef0f5;color:var(--ink)}.nav{display:flex;justify-content:space-between;gap:12px;margin-top:22px}.hidden{display:none}.error{color:#b42318;font-size:14px;margin-top:12px}
+.result h2{margin-top:0}.score{margin:18px 0}.score-head{display:flex;justify-content:space-between;font-weight:800}.track{height:12px;background:#edf0f5;border-radius:99px;overflow:hidden;margin-top:7px}.fill{height:100%;background:var(--accent);border-radius:99px}.recommend{margin-top:28px;padding:20px;background:#f7f6ff;border-radius:16px}.recommend h3{margin-top:0}.tag{display:inline-block;padding:8px 11px;background:#fff;border:1px solid #dcd9ff;border-radius:99px;margin:5px 4px 0 0;font-weight:700}
+small{color:var(--muted)}.name{margin:18px 0}.name input{width:100%;padding:13px;border:1px solid var(--border);border-radius:10px;font-size:16px}
+@media(max-width:600px){.card{padding:20px}.situation{font-size:19px}.scale label{min-width:50px}.scale span{padding:9px 2px}}
+
+/* Minimal cover */
+.cover{max-width:760px;margin:48px auto 0;padding:52px 56px 50px;position:relative;overflow:hidden;background:linear-gradient(145deg,#ffffff 0%,#fbfbff 100%)}
+.cover:before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;right:-110px;top:-120px;background:#f0efff}
+.cover:after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;left:-85px;bottom:-80px;background:#f6f7fb}
+.cover>*{position:relative;z-index:1}
+.cover-mark{font-size:12px;letter-spacing:.22em;font-weight:900;color:var(--accent);margin-bottom:20px}
+.cover-line{width:42px;height:3px;background:var(--accent);border-radius:5px;margin-bottom:28px}
+.cover-kicker{font-size:11px;letter-spacing:.18em;font-weight:800;color:#98a2b3;margin-bottom:14px}
+.cover h1{font-size:42px;line-height:1.12;letter-spacing:-.035em;margin:0 0 18px;font-weight:800}
+.cover h1 em{font-style:normal;color:var(--accent)}
+.cover .subtitle{max-width:570px;font-size:16px;margin-bottom:30px}
+.cover-info{display:flex;gap:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:18px 0;margin-bottom:24px}
+.cover-info div{flex:1;padding:0 18px;border-right:1px solid var(--border)}
+.cover-info div:first-child{padding-left:0}.cover-info div:last-child{border-right:0}
+.cover-info span{display:block;font-size:22px;font-weight:850}.cover-info small{display:block;margin-top:3px}
+.cover-note{display:flex;align-items:center;gap:10px;margin-bottom:25px}
+.cover-note p{margin:0;color:var(--muted);font-size:13px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--accent);flex:0 0 auto}
+.cover .name{margin:0 0 14px}
+.cover .name label span{font-weight:500;color:var(--muted)}
+.cover-button{width:100%;display:flex;align-items:center;justify-content:space-between;padding:15px 18px}
+.cover-button span{font-size:20px;line-height:0}
+@media(max-width:600px){
+ .cover{margin-top:18px;padding:34px 24px 28px}
+ .cover h1{font-size:31px}
+ .cover-info div{padding:0 10px}
+ .cover-info span{font-size:19px}
+ .cover-info small{font-size:10px}
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+<section id="intro" class="card cover">
+<div class="cover-mark">PETA</div>
+<div class="cover-line"></div>
+<div class="cover-kicker">PELAYANAN GEREJA</div>
+<h1>Temukan tempatmu untuk<br><em>bertumbuh & melayani.</em></h1>
+<p class="subtitle">Kenali kecenderungan, minat, dan potensi pelayanan yang paling dekat dengan dirimu.</p>
+<div class="cover-info">
+  <div><span>8</span><small>Situasi</small></div>
+  <div><span>5</span><small>Bidang pelayanan</small></div>
+  <div><span>1–5</span><small>Skala penilaian</small></div>
+</div>
+<div class="cover-note">
+  <span class="dot"></span>
+  <p>Tidak ada jawaban benar atau salah. Jawablah sesuai dengan dirimu.</p>
+</div>
+<div class="name"><label><b>Nama <span>(opsional)</span></b></label><input id="participant" placeholder="Tulis nama kamu"></div>
+<button class="primary cover-button" onclick="start()">Mulai Pemetaan <span>→</span></button>
+</section>
+
+<section id="quiz" class="card hidden">
+<div class="qnum" id="qnum"></div><div class="progress"><div class="bar" id="bar"></div></div>
+<div class="situation" id="situation"></div><div id="statements"></div>
+<div class="error hidden" id="error">Mohon beri nilai untuk semua pernyataan sebelum lanjut.</div>
+<div class="nav"><button class="secondary" id="back" onclick="prev()">← Kembali</button><button class="primary" id="next" onclick="next()">Lanjut →</button></div>
+</section>
+
+<section id="result" class="card hidden">
+<h2>🌟 Hasil Peta Minat Pelayanan</h2><p id="greeting" class="subtitle"></p>
+<div id="scores"></div>
+<div class="recommend"><h3>Rekomendasi pelayanan yang dapat dieksplor</h3><div id="recs"></div>
+<p><small>Hasil ini adalah alat eksplorasi, bukan penilaian kemampuan tetap.</small></p></div>
+<div class="nav"><button class="secondary" onclick="restart()">↻ Isi Ulang</button><button class="primary" onclick="downloadResult()">↓ Simpan Hasil</button></div>
+</section>
+</div>
+
+<script>
+const questions=[
+{s:"Kamu bergabung dalam kelompok yang anggotanya belum terlalu saling mengenal.",a:[
+["Saya mudah memulai percakapan untuk membuat suasana lebih cair.",{K:1}],
+["Saya cepat menyadari jika ada seseorang yang terlihat belum nyaman atau belum terlibat.",{P:1}],
+["Saya terdorong membantu kelompok menentukan apa yang perlu dilakukan terlebih dahulu.",{L:1}],
+["Saya spontan mendapatkan ide aktivitas yang bisa membuat anggota lebih mudah berbaur.",{C:1}]]},
+{s:"Dalam sebuah kegiatan, orang yang bertugas menyampaikan informasi tiba-tiba berhalangan.",a:[
+["Saya cukup percaya diri untuk maju dan menyampaikan informasi tersebut.",{K:1}],
+["Saya akan memastikan orang yang mengambil alih tugas tersebut merasa didukung.",{P:1}],
+["Saya akan membantu menentukan siapa yang paling tepat mengambil alih dan memastikan pergantian berjalan lancar.",{L:1}],
+["Saya tertarik mencari cara penyampaian yang membuat peserta lebih mudah memahami informasi tersebut.",{K:.75,C:.25}]]},
+{s:"Dalam diskusi, ada seseorang yang hampir tidak pernah berbicara.",a:[
+["Saya akan mengajukan pertanyaan atau membuka kesempatan agar ia bisa menyampaikan pendapat.",{K:.8,P:.2}],
+["Saya ingin mengetahui apakah ada alasan tertentu yang membuatnya memilih diam.",{P:1}],
+["Saya akan mencari cara agar pembagian peran dalam kelompok memungkinkan semua orang berkontribusi.",{L:.8,P:.2}],
+["Saya tertarik mengubah metode diskusi agar orang yang pendiam pun lebih mudah berpartisipasi.",{C:.8,P:.2}]]},
+{s:"Kamu diminta membantu sebuah kelas Sekolah Minggu.",a:[
+["Saya menikmati menjelaskan cerita atau materi dengan bahasa yang mudah dimengerti anak-anak.",{K:1}],
+["Saya tertarik mengenal karakter setiap anak dan memperhatikan kebutuhan mereka.",{P:1}],
+["Saya nyaman menjaga kelas tetap terarah ketika anak-anak mulai kehilangan fokus.",{L:.75,P:.25}],
+["Saya senang membuat permainan, cerita, atau aktivitas kreatif untuk membantu anak belajar.",{C:.8,P:.2}]]},
+{s:"Tim musik sedang berlatih dan merasa penampilan mereka belum terdengar menyatu.",a:[
+["Saya mudah memperhatikan ketika ada nada, tempo, atau bagian lagu yang belum tepat.",{M:1}],
+["Saya nyaman mencoba bagian vokal sambil menyesuaikan diri dengan anggota lain.",{M:1}],
+["Saya tertarik mencoba alat atau bagian musik yang dapat melengkapi keseluruhan lagu.",{M:1}],
+["Saya memperhatikan bagaimana musik dapat mendukung suasana ibadah secara keseluruhan.",{M:.9,P:.1}]]},
+{s:"Kamu berada dalam tim dengan anggota yang memiliki cara kerja berbeda-beda.",a:[
+["Saya nyaman menyampaikan pendapat ketika ada sesuatu yang perlu dibicarakan.",{K:1}],
+["Saya berusaha memahami kebutuhan dan cara kerja anggota lain.",{P:1}],
+["Saya bersedia mengambil tanggung jawab ketika tim membutuhkan seseorang untuk mengarahkan.",{L:1}],
+["Saya senang menggabungkan ide dari anggota yang berbeda menjadi sebuah konsep baru.",{C:1}]]},
+{s:"Gereja akan membuat materi publikasi untuk sebuah acara.",a:[
+["Saya memperhatikan apakah pesan utama dapat dipahami dengan cepat.",{K:.8,C:.2}],
+["Saya memikirkan apakah materi tersebut membuat orang merasa tertarik dan diterima.",{P:.5,C:.5}],
+["Saya tertarik memastikan informasi, jadwal, dan kebutuhan publikasi tersusun dengan lengkap.",{L:.8,C:.2}],
+["Saya menikmati memikirkan konsep visual, warna, layout, atau elemen desain.",{C:1}]]},
+{s:"Kamu mendengar sebuah lagu yang sedang digunakan dalam ibadah.",a:[
+["Saya memperhatikan bagaimana lagu tersebut menyampaikan pesan kepada jemaat.",{M:.75,K:.25}],
+["Saya peka terhadap suasana dan perasaan yang muncul melalui lagu tersebut.",{M:.9,P:.1}],
+["Saya memperhatikan bagaimana anggota tim musik saling menyesuaikan diri.",{M:.8,L:.2}],
+["Saya tertarik pada melodi, harmoni, ritme, atau bagaimana lagu tersebut dapat dikembangkan.",{M:1}]]}
+];
+
+const cats={K:"Komunikasi",P:"Pendamping & Kepedulian",L:"Kepemimpinan & Koordinasi",M:"Musik & Pujian",C:"Kreatif & Multimedia"};
+let idx=0,answers=Array.from({length:questions.length},()=>Array(4).fill(0)),participant="";
+function start(){participant=document.getElementById("participant").value.trim();document.getElementById("intro").classList.add("hidden");document.getElementById("quiz").classList.remove("hidden");render()}
+function render(){
+ const q=questions[idx];document.getElementById("qnum").textContent=`Situasi ${idx+1} dari ${questions.length}`;
+ document.getElementById("bar").style.width=((idx+1)/questions.length*100)+"%";document.getElementById("situation").textContent=q.s;
+ const box=document.getElementById("statements");box.innerHTML="";
+ q.a.forEach((x,i)=>{const d=document.createElement("div");d.className="statement";
+ d.innerHTML=`<p><b>${String.fromCharCode(65+i)}.</b> ${x[0]}</p><div class="scale">${[1,2,3,4,5].map(n=>`<label><input type="radio" name="s${i}" value="${n}" ${answers[idx][i]===n?"checked":""} onchange="setAns(${i},${n})"><span>${n}</span></label>`).join("")}</div><div class="scale-desc"><span>Sangat tidak sesuai</span><span>Sangat sesuai</span></div>`;
+ box.appendChild(d)});document.getElementById("back").style.visibility=idx===0?"hidden":"visible";document.getElementById("next").textContent=idx===questions.length-1?"Lihat Hasil →":"Lanjut →";document.getElementById("error").classList.add("hidden")}
+function setAns(i,n){answers[idx][i]=n;document.getElementById("error").classList.add("hidden")}
+function next(){if(answers[idx].some(v=>!v)){document.getElementById("error").classList.remove("hidden");return}if(idx<questions.length-1){idx++;render()}else showResult()}
+function prev(){if(idx>0){idx--;render()}}
+function calc(){
+ const raw={K:0,P:0,L:0,M:0,C:0},max={K:0,P:0,L:0,M:0,C:0};
+ questions.forEach((q,qi)=>q.a.forEach((x,ai)=>Object.entries(x[1]).forEach(([k,w])=>{raw[k]+=answers[qi][ai]*w;max[k]+=5*w})));
+ const out={};Object.keys(cats).forEach(k=>out[k]=Math.round(raw[k]/max[k]*100));return out
+}
+function recs(s){
+ const r=[
+ ["MC",s.K*.45+s.L*.15+s.P*.2+s.C*.2],
+ ["Moderator",s.K*.4+s.P*.2+s.L*.3+s.C*.1],
+ ["Public Speaking",s.K*.65+s.C*.1+s.L*.1+s.P*.15],
+ ["Pendamping Kelompok",s.P*.65+s.K*.15+s.L*.1+s.C*.1],
+ ["Mentoring",s.P*.55+s.K*.15+s.L*.2+s.C*.1],
+ ["Follow-up",s.P*.6+s.K*.25+s.L*.15],
+ ["Guru Sekolah Minggu",s.P*.3+s.L*.25+s.K*.2+s.C*.15+s.M*.1],
+ ["Koordinator",s.L*.55+s.K*.15+s.C*.1+s.P*.2],
+ ["Singer / Vokal",s.M*.65+s.K*.15+s.P*.1+s.L*.1],
+ ["Pemusik",s.M*.7+s.L*.15+s.C*.05+s.P*.1],
+ ["Worship",s.M*.55+s.P*.2+s.K*.1+s.L*.15],
+ ["Desain",s.C*.75+s.K*.1+s.L*.05+s.P*.1],
+ ["Publikasi / Konten",s.C*.45+s.K*.35+s.P*.1+s.L*.1],
+ ["Dokumentasi",s.C*.65+s.P*.1+s.K*.1+s.M*.15],
+ ["Multimedia",s.C*.55+s.L*.2+s.K*.1+s.M*.1+s.P*.05]
+ ];return r.sort((a,b)=>b[1]-a[1]).slice(0,5)
+}
+function showResult(){
+ document.getElementById("quiz").classList.add("hidden");document.getElementById("result").classList.remove("hidden");
+ const s=calc(),rs=recs(s);document.getElementById("greeting").textContent=participant?`Hasil untuk ${participant}. Berikut gambaran potensi pelayanan berdasarkan jawabanmu.`:"Berikut gambaran potensi pelayanan berdasarkan jawabanmu.";
+ document.getElementById("scores").innerHTML=Object.entries(s).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<div class="score"><div class="score-head"><span>${cats[k]}</span><span>${v}%</span></div><div class="track"><div class="fill" style="width:${v}%"></div></div></div>`).join("");
+ document.getElementById("recs").innerHTML=rs.map((x,i)=>`<span class="tag">${i+1}. ${x[0]}</span>`).join("");window.last={s,rs}
+}
+function downloadResult(){
+ const s=window.last.s,rs=window.last.rs;
+ const lines=["PETA MINAT PELAYANAN",participant?`Nama: ${participant}`:"","SKOR KATEGORI:",...Object.entries(s).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`${cats[k]}: ${v}%`),"","REKOMENDASI:",...rs.map((x,i)=>`${i+1}. ${x[0]}`),"","Catatan: Hasil ini merupakan alat eksplorasi minat/potensi, bukan penilaian kemampuan tetap."];
+ const blob=new Blob([lines.join("\n")],{type:"text/plain;charset=utf-8"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="hasil-peta-minat-pelayanan.txt";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)
+}
+function restart(){idx=0;answers=Array.from({length:questions.length},()=>Array(4).fill(0));document.getElementById("result").classList.add("hidden");document.getElementById("intro").classList.remove("hidden")}
+</script>
+</body>
+</html>
